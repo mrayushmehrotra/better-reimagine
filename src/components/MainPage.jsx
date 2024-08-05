@@ -5,7 +5,7 @@ import { IoIosTimer } from "react-icons/io";
 import { Tilt } from "react-tilt";
 
 const MainDiv = styled.div`
-  height: 50vh;
+  height: fit-content;
   width: 100%%;
   background-color: #004733;
   padding-top: 1rem;
@@ -20,8 +20,13 @@ const MainDiv = styled.div`
 const SecondMain = styled.div`
   padding: 0 5rem;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const HeroTitle = styled.h1`
@@ -38,13 +43,12 @@ const HeroTitle = styled.h1`
 `;
 
 const Img = styled.img`
-  height: 40%;
-  scale: 3;
-  position: absolute;
-  bottom: 40%;
-  align-self: center;
-  justify-content: flex-start;
-  z-index: 1;
+  // height: 40%;
+  // position: absolute;
+  // bottom: 40%;
+  // align-self: center;
+  // justify-content: flex-start;
+  // z-index: 1;
 `;
 
 const ApprovalButton = styled.button`
@@ -67,22 +71,21 @@ const ApprovalButton = styled.button`
 `;
 
 const LeftDiv = styled.div`
-  position: absolute;
-  left: 20%;
-  bottom: 40%;
+  // position: absolute;
+  // left: 20%;
+  // bottom: 40%;
 `;
 
 const SecondImg = styled.img`
-  position: absolute;
-  bottom: 40%;
-  right: 10%;
+  // position: absolute;
+  // bottom: 40%;
+  // right: 10%;
 `;
-
 const defaultOptions = {
   reverse: false, // reverse the tilt direction
   max: 35, // max tilt rotation (degrees)
   perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-  scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+  scale: 1, // 2 = 200%, 1.5 = 150%, etc..
   speed: 1000, // Speed of the enter/exit transition
   transition: true, // Set a transition on enter/exit.
   axis: null, // What axis should be disabled. Can be X or Y.
@@ -93,10 +96,10 @@ const defaultOptions = {
 const MainPage = () => {
   return (
     <>
-      <HeroTitle>
-        Mortgages <br /> made simple
-      </HeroTitle>
       <MainDiv>
+        <HeroTitle>
+          Mortgages <br /> made simple
+        </HeroTitle>
         <SecondMain>
           <LeftDiv>
             <ApprovalButton>Start My Approval</ApprovalButton>
@@ -111,9 +114,14 @@ const MainPage = () => {
             </p>
           </LeftDiv>
 
-          <Img src="/hero-variant-c.webp" alt="heroImg" />
-
-          <SecondImg src="/googleStats.png" alt="google-review" />
+          <div id="div2">
+            <Tilt options={defaultOptions}>
+              <Img src="/hero-variant-c.webp" alt="heroImg" />
+            </Tilt>
+          </div>
+          <div id="div-3">
+            <SecondImg src="/googleStats.png" alt="google-review" />
+          </div>
         </SecondMain>
       </MainDiv>
     </>

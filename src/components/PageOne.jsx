@@ -3,7 +3,6 @@ import React from "react";
 import Navbar from "./Navbar";
 import MainPage from "./MainPage";
 import styled from "styled-components";
-import PageOnePartTwo from "./PageOnePartTwo";
 
 const PageOneDiv = styled.div`
   height: 100%;
@@ -13,9 +12,8 @@ const PageOneDiv = styled.div`
 const PageOne = () => {
   return (
     <PageOneDiv>
-      <Navbar bgcolor={"#004733"} />
+      <Navbar textColor={"#fff"} bgcolor={"#004733"} />
       <MainPage />
-      <PageOnePartTwo />
     </PageOneDiv>
   );
 };
