@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoCallOutline } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const MainDiv = styled.div`
   display: flex;
@@ -13,20 +14,39 @@ const MainDiv = styled.div`
 
 const FlexWorker = styled.div`
   display: flex;
-  gap: 1vw;
+  gap: 3.5vw;
   color: white;
   align-items: center;
+
+  @media screen and (max-width: 1200px) {
+    #nav-items {
+      display: none;
+    }
+    #nav-button {
+      display: none;
+    }
+    div #nav-menu {
+      display: block;
+    }
+  }
 `;
 
 const NavItem = styled.h6`
-  font-weight: 500;
   font-size: 15px;
+  font-weight: 200;
+  border-radius: 500px;
+  padding: 1vw;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 `;
 
 const GetStartedButton = styled.button`
   height: 48px;
   width: 130px;
-  border: 1px solid black;
+  border: 1px solid #004733;
   padding: 12px 24px;
   background-color: #1ee07f;
   border-radius: 500px;
@@ -34,6 +54,17 @@ const GetStartedButton = styled.button`
   font-size: 15px;
   font-weight: 600;
   line-height: 13px;
+
+  &:hover {
+    background-color: #004733;
+    color: white;
+  }
+`;
+
+const CallDiv = styled.div`
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 0.8vw;
 `;
 
 const Navbar = ({ bgcolor }) => {
@@ -57,16 +88,21 @@ const Navbar = ({ bgcolor }) => {
             ></path>
           </svg>
         </h1>
-        <NavItem>Buy</NavItem>
-        <NavItem>Refinance</NavItem>
-        <NavItem>HELOC</NavItem>
-        <NavItem>Rates</NavItem>
-        <NavItem>Better+</NavItem>
+        <NavItem id="nav-items">Buy</NavItem>
+        <NavItem id="nav-items">Refinance</NavItem>
+        <NavItem id="nav-items">HELOC</NavItem>
+        <NavItem id="nav-items">Rates</NavItem>
+        <NavItem id="nav-items">Better+</NavItem>
       </FlexWorker>
       <FlexWorker id="div-part2">
-        <IoCallOutline />
-        <h4>Sign in</h4>
-        <GetStartedButton>Get Started</GetStartedButton>
+        <CallDiv>
+          <IoCallOutline />
+        </CallDiv>
+        <NavItem>Sign in</NavItem>
+        <GetStartedButton id="nav-button">Get Started</GetStartedButton>
+        <div id="nav-menu" style={{ display: "none" }}>
+          <RxHamburgerMenu id="nav-menu" size={25} />
+        </div>
       </FlexWorker>
     </MainDiv>
   );
