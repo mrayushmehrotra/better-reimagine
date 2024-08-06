@@ -40,6 +40,7 @@ const HeroTitle = styled.h1`
   background-color: #004733;
   z-index: 2
   letter-spacing: -2px;
+  margin:20px;
 `;
 
 const Img = styled.img`
