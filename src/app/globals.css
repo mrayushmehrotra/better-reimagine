@@ -6,8 +6,17 @@
   font-family: "better";
   src: url("../fonts/font1.p.ttf");
 }
+@font-face {
+  font-family: "better";
+  src: url("../fonts/font1.p.woff2");
+}
 
 @font-face {
   font-family: "better2";
   src: url("../fonts/font2.ttf");
+}
+
+@font-face {
+  font-family: "better2";
+  src: url("../fonts/font2.woff2");
 }
